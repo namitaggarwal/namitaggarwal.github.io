@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namit Aggarwal - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Namit Aggarwal</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#mnc-experience" class="nav-link">MNC Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link">Blog</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">NAMIT AGGARWAL</h1>
+                <h1 class="hero-location">Senior Software Engineer & Full Stack Developer</h1>
+                <p class="hero-location">Delhi, India</p>
+                <p class="hero-description">
+                    Senior Software Engineer & Full Stack Developer with over <span id="hero-experience">0</span> years of experience in automation testing and software development. 
+                    Demonstrated expertise in building robust test automation frameworks using Selenium, WebdriverIO, and Playwright, alongside strong full stack development skills. 
+                    Proficient in JavaScript, TypeScript, Core Java, and modern web frameworks, with a proven track record of delivering scalable, high-performance applications.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://drive.google.com/file/d/1krNpvzHLZq4_AdbRg6VR5VHRFXBzjuwj/view?usp=drive_link" target="_blank" class="btn btn-primary">Download Resume</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <p>I am a Senior Software Engineer & Full Stack Developer with over <span id="about-experience">0</span> years of experience in automation testing and software development. I have demonstrated expertise in building robust test automation frameworks using Selenium, WebdriverIO, and Playwright, alongside strong full stack development skills across both front-end and back-end technologies. I am proficient in JavaScript, TypeScript, Core Java, and modern web frameworks, with a proven track record of delivering scalable, high-performance web applications. My focus lies in improving test coverage, optimizing CI/CD pipelines, and ensuring application quality - bringing together coding excellence, testing expertise, and collaborative problem-solving to every project I work on.</p>
+            </div>
+            
+            <!-- Career Statistics -->
+            <div class="career-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-experience">0</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Releases Delivered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">Technologies and tools I work with</p>
+            <div class="skills-grid">
+                <div class="skill-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png" alt="Node.js" class="skill-logo">
+                  <span>Node.js</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript" class="skill-logo">
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="TypeScript" class="skill-logo">
+                    <span>TypeScript</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png" alt="Core Java" class="skill-logo">
+                    <span>Core Java</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Selenium_Logo.png/1200px-Selenium_Logo.png" alt="Selenium" class="skill-logo">
+                    <span>Selenium</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://webdriver.io/img/webdriverio.png" alt="WebdriverIO" class="skill-logo">
+                    <span>WebdriverIO</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://playwright.dev/img/playwright-logo.svg" alt="Playwright" class="skill-logo">
+                    <span>Playwright</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bash_Logo_Colored.svg/1200px-Bash_Logo_Colored.svg.png" alt="ShellScript" class="skill-logo">
+                    <span>ShellScript</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Groovy-logo.svg/1200px-Groovy-logo.svg.png" alt="Groovy" class="skill-logo">
+                    <span>Groovy</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jenkins_logo_with_title.svg/1200px-Jenkins_logo_with_title.svg.png" alt="Jenkins" class="skill-logo">
+                    <span>Jenkins</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/1200px-Docker_%28container_engine%29_logo.svg.png" alt="Docker" class="skill-logo">
+                  <span>Docker</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Apache_Maven_logo.svg/1200px-Apache_Maven_logo.svg.png" alt="Maven" class="skill-logo">
+                    <span>Maven</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" alt="Git/GitHub" class="skill-logo">
+                    <span>Git/GitHub</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://junit.org/junit4/images/junit5-banner.png" alt="JUnit" class="skill-logo">
+                    <span>JUnit</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://qatestlab.com/assets/Uploads/testng1.png" alt="TestNG" class="skill-logo">
+                    <span>TestNG</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Sonarqube-48x200.png" alt="SonarQube" class="skill-logo">
+                    <span>SonarQube</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT0pVnbtb0ztl0j1srHF30vliMO7jpiLA1iQ&s" alt="QTest" class="skill-logo">
+                    <span>qTest</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png" alt="PostgreSQL" class="skill-logo">
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/MySQL_textlogo.svg/1200px-MySQL_textlogo.svg.png" alt="MySQL" class="skill-logo">
+                    <span>MySQL</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/1200px-Amazon_Web_Services_Logo.svg.png" alt="AWS" class="skill-logo">
+                    <span>AWS</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/1200px-Microsoft_Azure.svg.png" alt="Azure" class="skill-logo">
+                    <span>Azure</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://www.splunk.com/content/dam/splunk2/en_us/images/social/splunk-cisco-social.jpg" alt="Splunk" class="skill-logo">
+                    <span>Splunk</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://www.cypress.io/_astro/cypress-logo.D87396b0.svg" alt="Cypress" class="skill-logo">
+                    <span>Cypress</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="Machine Learning" class="skill-logo">
+                    <span>Machine Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience with MNCs Section -->
+    <section id="mnc-experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Work Experience with MNCs</h2>
+            <div class="mnc-companies">
+                <div class="company-logo" onclick="window.open('https://www.adobe.com/', '_blank')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/1200px-Adobe_Systems_logo_and_wordmark.svg.png" alt="Adobe" class="logo-img">
+                    <h3>Adobe</h3>
+                </div>
+                <div class="company-logo" onclick="window.open('https://www.hughes.com/', '_blank')">
+                    <img src="https://africabusinesscommunities.com/assets/components/phpthumbof/cache/hughes-network-systems-2.5d1980509d902384ff1c11754ca09153.jpg.pagespeed.ce.UK4BH3-9X8.jpg" alt="Hughes Network Systems" class="logo-img">
+                    <h3>Hughes Network Systems</h3>
+                </div>
+                <div class="company-logo" onclick="window.open('https://www.hsc.com/', '_blank')">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/Hughes_Systique_Corporation_logo.png" alt="Hughes Systique Corporation" class="logo-img">
+                    <h3>Hughes Systique Corporation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-subtitle">My professional journey in software engineering and technology</p>
+            <div class="experience-timeline">
+                <div class="experience-item" onclick="toggleExperience(this)">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Senior Software Engineer</h3>
+                        <span class="experience-company">Adobe (Via Hughes Systique Corporation) · Full-time</span>
+                        <span class="experience-duration" data-start="2023-04" data-end="present">Apr 2023 - Present · <span class="duration-calc"></span></span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="experience-content">
+                        <p class="experience-description">Noida, Uttar Pradesh, India · Hybrid</p>
+                        <p class="experience-description">I have been actively involved in designing and developing automated test scripts for the ContentHub platform using Playwright with both TypeScript and JavaScript. My responsibilities include writing unit tests and ensuring robust test coverage for the application. I focus on improving the overall code quality by continuously increasing the code coverage for the source code, identifying gaps, and adding meaningful test cases.</p>
+                        <p class="experience-description">In addition to test automation, I contribute to maintaining and managing Adobe Experience Manager (AEM) by leveraging JavaScript, Shell scripting, Docker, and Jenkins. As part of my daily routine, I closely monitor the AEM Jenkins dashboard to check for any failures or issues in the scheduled jobs. Whenever a failure is observed, I perform an in-depth analysis to identify the root cause.</p>
+                    </div>
+                </div>
+                <div class="experience-item" onclick="toggleExperience(this)">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Software Engineer</h3>
+                        <span class="experience-company">Hughes Systique Corporation (HSC)</span>
+                        <span class="experience-duration" data-start="2021-12" data-end="2023-04">Dec 2021 - Apr 2023 · <span class="duration-calc"></span></span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="experience-content">
+                        <p class="experience-description">Gurugram, Haryana, India · Hybrid</p>
+                        <p class="experience-description">Preparing comprehensive test plans, defining test design approaches, and creating detailed test cases to ensure complete coverage of project requirements. Collaborating with the Team Lead to prepare automation test cases and develop efficient automation scripts. Performing regular updates and maintenance of the regression test suite to keep it aligned with application changes.</p>
+                        <p class="experience-description">Reporting and tracking defects using JIRA, ensuring clear documentation of issues for timely resolution. Coordinating with developers to analyze defects, discuss root causes, and verify fixes after resolution. Actively participating in scrum meetings and providing daily status updates on progress and blockers.</p>
+                    </div>
+                </div>
+                <div class="experience-item" onclick="toggleExperience(this)">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Software Engineer</h3>
+                        <span class="experience-company">ACS Infotech Pvt Ltd</span>
+                        <span class="experience-duration" data-start="2020-08" data-end="2021-11">Aug 2020 - Nov 2021 · <span class="duration-calc"></span></span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="experience-content">
+                        <p class="experience-description">Noida, Uttar Pradesh, India · Remote</p>
+                        <p class="experience-description">Launched my professional journey at ACS Infotech Pvt Ltd, where I contributed to both software development and automation testing projects. Developed and maintained web applications using JavaScript and modern frameworks, while also designing and implementing automated test scripts to ensure product quality. Collaborated closely with cross-functional teams to deliver robust, scalable solutions and gained valuable experience in the full software development lifecycle, from coding and debugging to testing and deployment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">My academic background and qualifications</p>
+            <div class="education-timeline">
+                <div class="education-item" onclick="toggleEducation(this)">
+                    <div class="education-header">
+                        <h3 class="education-title">B.Tech., Electrical, Electronics and Communications Engineering</h3>
+                        <span class="education-institution">K.R. Mangalam University</span>
+                        <span class="education-duration">2015 - 2019</span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="education-content">
+                        <p class="education-description">Grade: 6.06 CGPA</p>
+                    </div>
+                </div>
+                <div class="education-item" onclick="toggleEducation(this)">
+                    <div class="education-header">
+                        <h3 class="education-title">12th, Non Medical, Science</h3>
+                        <span class="education-institution">Tulips International School</span>
+                        <span class="education-duration">2014 - 2015</span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="education-content">
+                        <p class="education-description">Grade: 57.5%</p>
+                    </div>
+                </div>
+                <div class="education-item" onclick="toggleEducation(this)">
+                    <div class="education-header">
+                        <h3 class="education-title">10th</h3>
+                        <span class="education-institution">D.A.V. Public School, Pushpanjali</span>
+                        <span class="education-duration">2012 - 2013</span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
+                    </div>
+                    <div class="education-content">
+                        <p class="education-description">Grade: 6.4 CGPA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">My open source projects and contributions</p>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <h3>E-commerce Platform</h3>
+                    <p>A full-stack e-commerce solution built with React and Node.js</p>
+                </div>
+                <div class="project-item">
+                    <h3>Task Management App</h3>
+                    <p>A collaborative task management application with real-time updates</p>
+                </div>
+                <div class="project-item">
+                    <h3>API Gateway</h3>
+                    <p>Microservices API gateway with authentication and rate limiting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Interested in connecting? Feel free to reach out</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>Fill in the form to start a conversation.</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                        <p><i class="fas fa-envelope"></i> namitaggarwal.fullstack@gmail.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/namitfullstack/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/namitaggarwal12" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/namitaggarwal" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">Blog</h2>
+            <p class="section-subtitle">My latest thoughts and insights</p>
+            <div class="blog-grid">
+                <div class="blog-item">
+                    <h3>Building Scalable Microservices</h3>
+                    <p>Learn how to design and implement scalable microservices architecture...</p>
+                </div>
+                <div class="blog-item">
+                    <h3>React Performance Optimization</h3>
+                    <p>Tips and tricks to optimize React applications for better performance...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Namit Aggarwal</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
