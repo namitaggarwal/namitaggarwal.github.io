@@ -396,16 +396,63 @@ function calculateTotalExperience() {
         aboutExperienceElement.textContent = displayYears;
     }
     
-    // Update stats experience (decimal with +)
-    const totalExperienceElement = document.getElementById('total-experience');
-    if (totalExperienceElement) {
-        totalExperienceElement.textContent = `${displayYears}+`;
+    // Animate stats experience counter
+    animateCounter('total-experience', 0, parseFloat(displayYears), 2000, 1, '+');
+}
+
+// Animated counter function
+function animateCounter(elementId, start, end, duration, decimals = 0, suffix = '') {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    const startTime = performance.now();
+    const isDecimal = decimals > 0;
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const current = start + (end - start) * easeOutQuart;
+        
+        if (isDecimal) {
+            element.textContent = current.toFixed(decimals) + suffix;
+        } else {
+            element.textContent = Math.floor(current) + suffix;
+        }
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // Ensure final value is exact
+            if (isDecimal) {
+                element.textContent = end.toFixed(decimals) + suffix;
+            } else {
+                element.textContent = Math.floor(end) + suffix;
+            }
+        }
     }
+    
+    requestAnimationFrame(updateCounter);
+}
+
+// Animate releases delivered counter
+function animateReleasesCounter() {
+    animateCounter('releases-counter', 0, 40, 2500, 0, '+');
 }
 
 // Initialize durations and total experience on page load
 updateDurations();
 calculateTotalExperience();
+
+// Initialize animated counters when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Start animations after a short delay to ensure page is loaded
+    setTimeout(() => {
+        animateReleasesCounter();
+    }, 500);
+});
 
 // Update durations every month to keep them current
 setInterval(() => {
