@@ -119,10 +119,19 @@ if (contactForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
+        // Create a new FormData with proper field mapping
+        const submitData = new FormData();
+        submitData.append('name', name);
+        submitData.append('email', email);
+        submitData.append('subject', subject);
+        submitData.append('message', message);
+        submitData.append('_subject', `Portfolio Contact: ${subject}`);
+        submitData.append('_replyto', email);
+        
         // Submit form to Formspree
         fetch(this.action, {
             method: 'POST',
-            body: formData,
+            body: submitData,
             headers: {
                 'Accept': 'application/json'
             }
