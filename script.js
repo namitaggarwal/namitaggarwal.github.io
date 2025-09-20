@@ -76,6 +76,19 @@ window.addEventListener('scroll', () => {
 
 // EmailJS initialization removed - using Formspree instead
 
+// Resume download function
+function downloadResume() {
+    // Trigger hidden download after opening the view link
+    setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = "https://drive.google.com/uc?export=download&id=1VI1z7e6e2bkbhHerhPnC8owrqvDOXETb";
+        link.download = "Namit_Aggarwal_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }, 1000); // wait 1s so view tab opens first
+}
+
 // Contact form handling with Formspree
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
