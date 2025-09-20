@@ -781,6 +781,37 @@ body {
 .blog-item p {
     color: var(--text-secondary);
     line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.blog-date {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.blog-platform {
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.blog-link {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.blog-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
 }
 
 /* Footer */
