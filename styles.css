@@ -180,7 +180,7 @@ body {
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
 }
 
@@ -272,16 +272,24 @@ body {
         width: 200px;
         height: 200px;
         margin: 0 auto;
+        border-radius: 12px;
+    }
+    
+    .profile-image {
+        object-fit: cover;
+        object-position: center top;
     }
     
     .hero-buttons {
         justify-content: center;
         margin-top: 1.5rem;
+        margin-bottom: 2rem;
     }
     
     .btn {
-        padding: 12px 24px;
-        font-size: 0.9rem;
+        padding: 14px 28px;
+        font-size: 1rem;
+        min-width: 160px;
     }
 }
 
@@ -313,15 +321,23 @@ body {
     .profile-image-container {
         width: 180px;
         height: 180px;
+        border-radius: 10px;
+    }
+    
+    .profile-image {
+        object-fit: cover;
+        object-position: center top;
     }
     
     .hero-buttons {
         margin-top: 1rem;
+        margin-bottom: 1.5rem;
     }
     
     .btn {
-        padding: 10px 20px;
-        font-size: 0.85rem;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        min-width: 140px;
     }
 }
 
@@ -1208,6 +1224,41 @@ body {
     min-height: 120px;
 }
 
+/* Mobile Contact Form Styles */
+@media (max-width: 768px) {
+    .contact-form {
+        gap: 1.2rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+        border-radius: 6px;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        gap: 1rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+    
+    .form-group textarea {
+        min-height: 90px;
+    }
+}
+
 /* Blog Section */
 .blog-grid {
     display: grid;
@@ -1410,7 +1461,7 @@ body {
 
 
     .section {
-        padding: 60px 0;
+        padding: 40px 0;
     }
 
     .section-title {
@@ -1530,11 +1581,22 @@ body {
     .profile-image-container {
         width: 150px;
         height: 150px;
+        border-radius: 8px;
+    }
+    
+    .profile-image {
+        object-fit: cover;
+        object-position: center top;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 1rem;
     }
     
     .btn {
-        padding: 8px 16px;
-        font-size: 0.8rem;
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        min-width: 120px;
     }
 }
 
