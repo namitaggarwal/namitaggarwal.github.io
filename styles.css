@@ -269,31 +269,31 @@ body {
 }
 
 .btn-primary {
-    background-color: white;
-    color: #333;
-    border-color: white;
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
 }
 
 .btn-primary:hover {
-    background-color: transparent;
+    background-color: var(--accent-hover);
     color: white;
-    border-color: white;
+    border-color: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: white;
-    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--accent-color);
     color: white;
-    border-color: white;
+    border-color: var(--accent-color);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
 }
 
 /* Sections */
