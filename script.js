@@ -497,16 +497,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to refresh page and scroll to top
 function refreshAndScrollToTop() {
-    // Scroll to top first
+    // Scroll to top first with smooth animation
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
     
-    // Refresh the page after a short delay
+    // Wait for scroll animation to complete, then refresh
+    let scrollCheck = setInterval(() => {
+        if (window.pageYOffset === 0) {
+            clearInterval(scrollCheck);
+            // Small additional delay to ensure smooth animation is fully complete
+            setTimeout(() => {
+                window.location.reload();
+            }, 200);
+        }
+    }, 50); // Check every 50ms
+    
+    // Fallback: refresh after 2 seconds if scroll doesn't complete
     setTimeout(() => {
+        clearInterval(scrollCheck);
         window.location.reload();
-    }, 300);
+    }, 2000);
 }
 
 // Update durations every month to keep them current
