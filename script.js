@@ -74,34 +74,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Initialize EmailJS
-function initializeEmailJS() {
-    // Get credentials from environment variables, config file, or fallback
-    let publicKey = 'YOUR_PUBLIC_KEY';
-    
-    // Try Netlify environment variables first (for production)
-    if (typeof process !== 'undefined' && process.env && process.env.EMAILJS_PUBLIC_KEY) {
-        publicKey = process.env.EMAILJS_PUBLIC_KEY;
-    }
-    // Try config file (for local development)
-    else if (typeof EMAILJS_CONFIG !== 'undefined') {
-        publicKey = EMAILJS_CONFIG.PUBLIC_KEY;
-    }
-    
-    // Wait for EmailJS to load before initializing
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init(publicKey);
-        console.log('EmailJS initialized with key:', publicKey);
-    } else {
-        console.error('EmailJS library not loaded');
-    }
-}
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Small delay to ensure EmailJS is loaded
-    setTimeout(initializeEmailJS, 100);
-});
+// EmailJS initialization removed - using Formspree instead
 
 // Contact form handling with Formspree
 const contactForm = document.querySelector('.contact-form');
