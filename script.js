@@ -120,7 +120,7 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         // Add the subject to the email subject line
-        formData.append('_subject', `Portfolio Contact: ${subject}`);
+        formData.append('_subject', `Subject: ${subject}`);
         
         // Submit form to Formspree
         fetch(this.action, {
