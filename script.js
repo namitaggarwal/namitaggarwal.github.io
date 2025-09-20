@@ -103,12 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(initializeEmailJS, 100);
 });
 
-// Contact form handling
+// Contact form handling with Formspree
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
@@ -118,11 +116,13 @@ if (contactForm) {
         
         // Simple validation
         if (!name || !email || !subject || !message) {
+            e.preventDefault();
             showNotification('Please fill in all fields.', 'error');
             return;
         }
         
         if (!isValidEmail(email)) {
+            e.preventDefault();
             showNotification('Please enter a valid email address.', 'error');
             return;
         }
@@ -133,74 +133,15 @@ if (contactForm) {
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         
-        // EmailJS template parameters
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            subject: subject,
-            message: message,
-            to_email: 'namitaggarwal.fullstack@gmail.com' // Your email address
-        };
-        
-        // Send email using EmailJS
-        let serviceId = 'YOUR_SERVICE_ID';
-        let templateId = 'YOUR_TEMPLATE_ID';
-        
-        // Try Netlify environment variables first (for production)
-        if (typeof process !== 'undefined' && process.env) {
-            if (process.env.EMAILJS_SERVICE_ID) serviceId = process.env.EMAILJS_SERVICE_ID;
-            if (process.env.EMAILJS_TEMPLATE_ID) templateId = process.env.EMAILJS_TEMPLATE_ID;
-        }
-        // Try config file (for local development)
-        else if (typeof EMAILJS_CONFIG !== 'undefined') {
-            serviceId = EMAILJS_CONFIG.SERVICE_ID;
-            templateId = EMAILJS_CONFIG.TEMPLATE_ID;
-        }
-        
-        // Debug logging
-        console.log('EmailJS Config:', {
-            serviceId: serviceId,
-            templateId: templateId,
-            publicKey: typeof EMAILJS_CONFIG !== 'undefined' ? EMAILJS_CONFIG.PUBLIC_KEY : 'Not loaded'
-        });
-        
-        // Check if EmailJS is properly initialized
-        if (typeof emailjs === 'undefined') {
-            console.error('EmailJS not loaded');
-            showNotification('Email service not available. Please contact me directly at namitaggarwal.fullstack@gmail.com', 'error');
+        // Let Formspree handle the submission
+        // The form will submit normally to Formspree
+        // We'll show success message after a delay
+        setTimeout(() => {
+            showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
+            this.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-            return;
-        }
-        
-        emailjs.send(serviceId, templateId, templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-                contactForm.reset();
-            }, function(error) {
-                console.error('EmailJS Error Details:', error);
-                console.error('Error Status:', error.status);
-                console.error('Error Text:', error.text);
-                
-                let errorMessage = 'Sorry, there was an error sending your message. ';
-                if (error.status === 400) {
-                    errorMessage += 'Please check your email address and try again.';
-                } else if (error.status === 401) {
-                    errorMessage += 'Authentication error. Please contact me directly.';
-                } else if (error.status === 403) {
-                    errorMessage += 'Service temporarily unavailable. Please try again later.';
-                } else {
-                    errorMessage += 'Please try again or contact me directly at namitaggarwal.fullstack@gmail.com';
-                }
-                
-                showNotification(errorMessage, 'error');
-            })
-            .finally(function() {
-                // Reset button state
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
+        }, 1000);
     });
 }
 
