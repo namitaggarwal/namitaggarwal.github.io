@@ -180,7 +180,7 @@ body {
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
-        padding: 1.5rem 0;
+        padding: 1rem 0;
     }
 }
 
@@ -276,20 +276,22 @@ body {
     }
     
     .profile-image {
-        object-fit: cover;
-        object-position: center top;
+        object-fit: contain;
+        object-position: center;
+        background: var(--card-bg);
     }
     
     .hero-buttons {
         justify-content: center;
         margin-top: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
     
     .btn {
-        padding: 14px 28px;
-        font-size: 1rem;
-        min-width: 160px;
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        min-width: 180px;
+        font-weight: 600;
     }
 }
 
@@ -325,19 +327,21 @@ body {
     }
     
     .profile-image {
-        object-fit: cover;
-        object-position: center top;
+        object-fit: contain;
+        object-position: center;
+        background: var(--card-bg);
     }
     
     .hero-buttons {
         margin-top: 1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.5rem;
     }
     
     .btn {
-        padding: 12px 24px;
-        font-size: 0.9rem;
-        min-width: 140px;
+        padding: 14px 28px;
+        font-size: 1rem;
+        min-width: 160px;
+        font-weight: 600;
     }
 }
 
@@ -1240,6 +1244,14 @@ body {
     .form-group textarea {
         min-height: 100px;
     }
+    
+    .contact-form .btn {
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        width: 100%;
+        max-width: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1256,6 +1268,14 @@ body {
     
     .form-group textarea {
         min-height: 90px;
+    }
+    
+    .contact-form .btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 100%;
+        max-width: none;
     }
 }
 
@@ -1461,7 +1481,7 @@ body {
 
 
     .section {
-        padding: 40px 0;
+        padding: 30px 0;
     }
 
     .section-title {
@@ -1585,8 +1605,9 @@ body {
     }
     
     .profile-image {
-        object-fit: cover;
-        object-position: center top;
+        object-fit: contain;
+        object-position: center;
+        background: var(--card-bg);
     }
     
     .hero-buttons {
@@ -1594,9 +1615,10 @@ body {
     }
     
     .btn {
-        padding: 10px 20px;
-        font-size: 0.85rem;
-        min-width: 120px;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        min-width: 140px;
+        font-weight: 600;
     }
 }
 
