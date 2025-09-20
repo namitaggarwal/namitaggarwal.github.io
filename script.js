@@ -481,14 +481,18 @@ themeToggle.addEventListener('click', () => {
 
 // Expandable Experience and Education Functions
 function toggleExperience(element) {
-    // Get all experience items
+    // Get all experience and education items
     const allExperienceItems = document.querySelectorAll('.experience-item');
+    const allEducationItems = document.querySelectorAll('.education-item');
     
     // Check if the clicked item is already expanded
     const isCurrentlyExpanded = element.classList.contains('expanded');
     
-    // Remove expanded class from all items
+    // Remove expanded class from ALL items (both experience and education)
     allExperienceItems.forEach(item => {
+        item.classList.remove('expanded');
+    });
+    allEducationItems.forEach(item => {
         item.classList.remove('expanded');
     });
     
@@ -499,13 +503,17 @@ function toggleExperience(element) {
 }
 
 function toggleEducation(element) {
-    // Get all education items
+    // Get all experience and education items
+    const allExperienceItems = document.querySelectorAll('.experience-item');
     const allEducationItems = document.querySelectorAll('.education-item');
     
     // Check if the clicked item is already expanded
     const isCurrentlyExpanded = element.classList.contains('expanded');
     
-    // Remove expanded class from all items
+    // Remove expanded class from ALL items (both experience and education)
+    allExperienceItems.forEach(item => {
+        item.classList.remove('expanded');
+    });
     allEducationItems.forEach(item => {
         item.classList.remove('expanded');
     });
