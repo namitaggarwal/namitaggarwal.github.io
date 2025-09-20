@@ -177,6 +177,13 @@ body {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+}
+
 .hero-container {
     position: relative;
     z-index: 2;
@@ -231,30 +238,50 @@ body {
     
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
         text-align: center;
     }
     
     .hero-text {
         text-align: center;
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+        margin-bottom: 1rem;
     }
     
     .hero-greeting {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
     }
     
     .hero-name {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
     }
     
     .profile-image-container {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto;
     }
     
     .hero-buttons {
         justify-content: center;
+        margin-top: 1.5rem;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
     }
 }
 
@@ -263,17 +290,38 @@ body {
         padding: 0 10px;
     }
     
+    .hero-content {
+        gap: 1rem;
+    }
+    
     .hero-greeting {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.3rem;
     }
     
     .hero-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
     }
     
     .profile-image-container {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
+    }
+    
+    .hero-buttons {
+        margin-top: 1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
     }
 }
 
@@ -1463,6 +1511,31 @@ body {
 }
 
 @media (max-width: 320px) {
+    .hero-container {
+        padding: 0 5px;
+    }
+    
+    .hero-greeting {
+        font-size: 1.5rem;
+    }
+    
+    .hero-name {
+        font-size: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 0.8rem;
+    }
+    
+    .profile-image-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
 }
 
 /* Smooth scrolling for anchor links */
