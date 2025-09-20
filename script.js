@@ -396,8 +396,15 @@ function calculateTotalExperience() {
         aboutExperienceElement.textContent = displayYears;
     }
     
-    // Animate stats experience counter
-    animateCounter('total-experience', 0, parseFloat(displayYears), 2000, 1, '+');
+    // Don't animate here - will be called separately
+    return parseFloat(displayYears);
+}
+
+// Animate experience counter
+function animateExperienceCounter() {
+    const experienceValue = calculateTotalExperience();
+    console.log('Experience value:', experienceValue); // Debug log
+    animateCounter('total-experience', 0, experienceValue, 2000, 1, '+');
 }
 
 // Animated counter function
@@ -451,6 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start animations after a short delay to ensure page is loaded
     setTimeout(() => {
         animateReleasesCounter();
+        animateExperienceCounter();
     }, 500);
 });
 
