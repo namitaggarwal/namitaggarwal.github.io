@@ -90,11 +90,16 @@ body {
     font-weight: 700;
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
 }
 
 .nav-logo a:hover {
     color: var(--accent-color);
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: scale(1.05);
 }
 
 .nav-controls {

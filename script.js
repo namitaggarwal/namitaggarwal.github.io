@@ -496,6 +496,83 @@ document.addEventListener('DOMContentLoaded', function() {
     setupCounterAnimations();
 });
 
+// Restart all animations function
+function restartAnimations() {
+    // Reset and restart typing effect
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        setTimeout(() => {
+            typeWriter(heroTitle, originalText, 150);
+        }, 100);
+    }
+    
+    // Reset and restart counter animations
+    const releasesElement = document.getElementById('releases-counter');
+    const experienceElement = document.getElementById('total-experience');
+    
+    if (releasesElement) {
+        releasesElement.textContent = '0';
+        animateReleasesCounter();
+    }
+    
+    if (experienceElement) {
+        experienceElement.textContent = '0.0';
+        animateExperienceCounter();
+    }
+    
+    // Reset and restart highlighting animations
+    restartHighlightAnimations();
+    
+    // Scroll to top smoothly
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Restart highlighting animations
+function restartHighlightAnimations() {
+    // Remove existing animation classes
+    const nameElement = document.querySelector('.hero-name');
+    const companyElement = document.querySelector('.company-highlight');
+    const highlightElement = document.querySelector('.highlight-text');
+    const bracketElement = document.querySelector('.bracket-highlight');
+    const linkElement = document.querySelector('.highlight-link');
+    
+    // Reset animation states
+    if (nameElement) {
+        nameElement.style.animation = 'none';
+        nameElement.offsetHeight; // Trigger reflow
+        nameElement.style.animation = null;
+    }
+    
+    if (companyElement) {
+        companyElement.style.animation = 'none';
+        companyElement.offsetHeight;
+        companyElement.style.animation = null;
+    }
+    
+    if (highlightElement) {
+        highlightElement.style.animation = 'none';
+        highlightElement.offsetHeight;
+        highlightElement.style.animation = null;
+    }
+    
+    if (bracketElement) {
+        bracketElement.style.animation = 'none';
+        bracketElement.offsetHeight;
+        bracketElement.style.animation = null;
+    }
+    
+    if (linkElement) {
+        linkElement.style.animation = 'none';
+        linkElement.offsetHeight;
+        linkElement.style.animation = null;
+    }
+}
+
 // Update durations every month to keep them current
 setInterval(() => {
     updateDurations();
