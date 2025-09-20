@@ -79,6 +79,12 @@ body {
     height: 70px;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: 700;
@@ -272,13 +278,13 @@ body {
         width: 180px;
         height: 180px;
         margin: 0 auto;
-        border-radius: 10px;
+        border-radius: 50%;
+        overflow: hidden;
     }
     
     .profile-image {
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
-        background: var(--card-bg);
     }
     
     .hero-buttons {
@@ -325,13 +331,13 @@ body {
     .profile-image-container {
         width: 160px;
         height: 160px;
-        border-radius: 8px;
+        border-radius: 50%;
+        overflow: hidden;
     }
     
     .profile-image {
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
-        background: var(--card-bg);
     }
     
     .hero-buttons {
@@ -1394,6 +1400,14 @@ body {
     .hamburger {
         display: flex;
     }
+    
+    .nav-left {
+        gap: 0.5rem;
+    }
+    
+    .nav-logo a {
+        font-size: 1.2rem;
+    }
 
     .nav-menu {
         position: fixed;
@@ -1613,13 +1627,13 @@ body {
     .profile-image-container {
         width: 140px;
         height: 140px;
-        border-radius: 6px;
+        border-radius: 50%;
+        overflow: hidden;
     }
     
     .profile-image {
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
-        background: var(--card-bg);
     }
     
     .hero-buttons {
