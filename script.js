@@ -76,11 +76,15 @@ window.addEventListener('scroll', () => {
 
 // Initialize EmailJS
 function initializeEmailJS() {
-    // Get credentials from config file or use fallback
+    // Get credentials from environment variables, config file, or fallback
     let publicKey = 'YOUR_PUBLIC_KEY';
     
-    // Try to load from config file if it exists
-    if (typeof EMAILJS_CONFIG !== 'undefined') {
+    // Try Netlify environment variables first (for production)
+    if (typeof process !== 'undefined' && process.env && process.env.EMAILJS_PUBLIC_KEY) {
+        publicKey = process.env.EMAILJS_PUBLIC_KEY;
+    }
+    // Try config file (for local development)
+    else if (typeof EMAILJS_CONFIG !== 'undefined') {
         publicKey = EMAILJS_CONFIG.PUBLIC_KEY;
     }
     
@@ -142,8 +146,13 @@ if (contactForm) {
         let serviceId = 'YOUR_SERVICE_ID';
         let templateId = 'YOUR_TEMPLATE_ID';
         
-        // Try to load from config file if it exists
-        if (typeof EMAILJS_CONFIG !== 'undefined') {
+        // Try Netlify environment variables first (for production)
+        if (typeof process !== 'undefined' && process.env) {
+            if (process.env.EMAILJS_SERVICE_ID) serviceId = process.env.EMAILJS_SERVICE_ID;
+            if (process.env.EMAILJS_TEMPLATE_ID) templateId = process.env.EMAILJS_TEMPLATE_ID;
+        }
+        // Try config file (for local development)
+        else if (typeof EMAILJS_CONFIG !== 'undefined') {
             serviceId = EMAILJS_CONFIG.SERVICE_ID;
             templateId = EMAILJS_CONFIG.TEMPLATE_ID;
         }
