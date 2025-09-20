@@ -74,6 +74,31 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Initialize EmailJS
+function initializeEmailJS() {
+    // Get credentials from config file or use fallback
+    let publicKey = 'YOUR_PUBLIC_KEY';
+    
+    // Try to load from config file if it exists
+    if (typeof EMAILJS_CONFIG !== 'undefined') {
+        publicKey = EMAILJS_CONFIG.PUBLIC_KEY;
+    }
+    
+    // Wait for EmailJS to load before initializing
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(publicKey);
+        console.log('EmailJS initialized with key:', publicKey);
+    } else {
+        console.error('EmailJS library not loaded');
+    }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure EmailJS is loaded
+    setTimeout(initializeEmailJS, 100);
+});
+
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
@@ -98,9 +123,75 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-        this.reset();
+        // Show loading state
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // EmailJS template parameters
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'namitaggarwal.fullstack@gmail.com' // Your email address
+        };
+        
+        // Send email using EmailJS
+        let serviceId = 'YOUR_SERVICE_ID';
+        let templateId = 'YOUR_TEMPLATE_ID';
+        
+        // Try to load from config file if it exists
+        if (typeof EMAILJS_CONFIG !== 'undefined') {
+            serviceId = EMAILJS_CONFIG.SERVICE_ID;
+            templateId = EMAILJS_CONFIG.TEMPLATE_ID;
+        }
+        
+        // Debug logging
+        console.log('EmailJS Config:', {
+            serviceId: serviceId,
+            templateId: templateId,
+            publicKey: typeof EMAILJS_CONFIG !== 'undefined' ? EMAILJS_CONFIG.PUBLIC_KEY : 'Not loaded'
+        });
+        
+        // Check if EmailJS is properly initialized
+        if (typeof emailjs === 'undefined') {
+            console.error('EmailJS not loaded');
+            showNotification('Email service not available. Please contact me directly at namitaggarwal.fullstack@gmail.com', 'error');
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            return;
+        }
+        
+        emailjs.send(serviceId, templateId, templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+            }, function(error) {
+                console.error('EmailJS Error Details:', error);
+                console.error('Error Status:', error.status);
+                console.error('Error Text:', error.text);
+                
+                let errorMessage = 'Sorry, there was an error sending your message. ';
+                if (error.status === 400) {
+                    errorMessage += 'Please check your email address and try again.';
+                } else if (error.status === 401) {
+                    errorMessage += 'Authentication error. Please contact me directly.';
+                } else if (error.status === 403) {
+                    errorMessage += 'Service temporarily unavailable. Please try again later.';
+                } else {
+                    errorMessage += 'Please try again or contact me directly at namitaggarwal.fullstack@gmail.com';
+                }
+                
+                showNotification(errorMessage, 'error');
+            })
+            .finally(function() {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
