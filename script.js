@@ -453,13 +453,47 @@ function animateReleasesCounter() {
 updateDurations();
 calculateTotalExperience();
 
+// Scroll-triggered counter animations
+function setupCounterAnimations() {
+    const observerOptions = {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element is fully visible
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                
+                // Check which counter this is and animate accordingly
+                if (element.id === 'releases-counter') {
+                    animateReleasesCounter();
+                } else if (element.id === 'total-experience') {
+                    animateExperienceCounter();
+                }
+                
+                // Stop observing this element after animation starts
+                counterObserver.unobserve(element);
+            }
+        });
+    }, observerOptions);
+
+    // Observe the counter elements
+    const releasesElement = document.getElementById('releases-counter');
+    const experienceElement = document.getElementById('total-experience');
+    
+    if (releasesElement) {
+        counterObserver.observe(releasesElement);
+    }
+    if (experienceElement) {
+        counterObserver.observe(experienceElement);
+    }
+}
+
 // Initialize animated counters when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Start animations after a short delay to ensure page is loaded
-    setTimeout(() => {
-        animateReleasesCounter();
-        animateExperienceCounter();
-    }, 500);
+    // Setup scroll-triggered counter animations
+    setupCounterAnimations();
 });
 
 // Update durations every month to keep them current
