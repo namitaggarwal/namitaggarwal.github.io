@@ -403,7 +403,6 @@ function calculateTotalExperience() {
 // Animate experience counter
 function animateExperienceCounter() {
     const experienceValue = calculateTotalExperience();
-    console.log('Experience value:', experienceValue); // Debug log
     animateCounter('total-experience', 0, experienceValue, 2000, 1, '+');
 }
 

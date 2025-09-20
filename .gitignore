@@ -3,9 +3,6 @@
 .env.local
 .env.production
 
-# EmailJS credentials
-config.js
-
 # IDE files
 .vscode/
 .idea/
