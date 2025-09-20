@@ -74,10 +74,8 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// EmailJS initialization removed - using Formspree instead
-
-// Resume download function
-function downloadResume() {
+// Resume download function - defined globally
+window.downloadResume = function() {
     // Trigger hidden download after opening the view link
     setTimeout(() => {
         const link = document.createElement("a");
@@ -87,7 +85,9 @@ function downloadResume() {
         link.click();
         document.body.removeChild(link);
     }, 1000); // wait 1s so view tab opens first
-}
+};
+
+// EmailJS initialization removed - using Formspree instead
 
 // Contact form handling with Formspree
 const contactForm = document.querySelector('.contact-form');
