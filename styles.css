@@ -200,75 +200,88 @@ body {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     opacity: 0;
     animation: fadeInUp 1s ease 0.5s forwards;
     word-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
     line-height: 1.1;
+    color: white;
 }
 
 .hero-location {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
     opacity: 0;
     animation: fadeInUp 1s ease 0.7s forwards;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1.2rem;
+    line-height: 1.7;
     margin-bottom: 3rem;
     opacity: 0;
     animation: fadeInUp 1s ease 0.9s forwards;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
     opacity: 0;
     animation: fadeInUp 1s ease 1.1s forwards;
+    margin-top: 2rem;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
+    padding: 14px 32px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     cursor: pointer;
     font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .btn-primary {
-    background-color: var(--accent-color);
-    color: white;
-    border-color: var(--accent-color);
+    background-color: white;
+    color: #333;
+    border-color: white;
 }
 
 .btn-primary:hover {
     background-color: transparent;
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+    color: white;
+    border-color: white;
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary {
     background-color: transparent;
     color: white;
-    border-color: white;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary:hover {
-    background-color: white;
-    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
 }
 
 /* Sections */
@@ -826,6 +839,18 @@ body {
         font-size: 2.5rem;
         line-height: 1.2;
         padding: 0 10px;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-location {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
     }
 
     .hero-buttons {
@@ -904,10 +929,18 @@ body {
         font-size: 2rem;
         line-height: 1.2;
         padding: 0 15px;
+        margin-bottom: 0.3rem;
     }
-
+    
+    .hero-location {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
     .hero-description {
         font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
     }
 
     .section {
