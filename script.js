@@ -366,9 +366,12 @@ function updateDurations() {
     });
 }
 
+// Shared career start date for all dynamic stats
+const CAREER_START_DATE = new Date('2020-02-01'); // Start of QA Trainee role
+
 // Calculate total years of experience
 function calculateTotalExperience() {
-    const startDate = new Date('2020-02-01'); // Start of QA Trainee role
+    const startDate = CAREER_START_DATE;
     const currentDate = new Date();
     
     let years = currentDate.getFullYear() - startDate.getFullYear();
@@ -446,9 +449,19 @@ function animateCounter(elementId, start, end, duration, decimals = 0, suffix = 
     requestAnimationFrame(updateCounter);
 }
 
+// Calculate total releases delivered based on 1 release every 15 days of experience
+function calculateTotalReleases() {
+    const currentDate = new Date();
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    const daysOfExperience = Math.floor((currentDate - CAREER_START_DATE) / millisecondsPerDay);
+
+    return Math.max(Math.floor(daysOfExperience / 15), 0);
+}
+
 // Animate releases delivered counter
 function animateReleasesCounter() {
-    animateCounter('releases-counter', 0, 40, 2500, 0, '+');
+    const releasesValue = calculateTotalReleases();
+    animateCounter('releases-counter', 0, releasesValue, 2500, 0, '+');
 }
 
 // Initialize durations and total experience on page load
