@@ -244,6 +244,78 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Dynamically load Projects section from GitHub repos (falls back to the
+// static markup already in index.html if the API call fails or is empty)
+const GITHUB_USERNAME = 'namitaggarwal';
+const EXCLUDED_REPOS = ['namitaggarwal.github.io'];
+const MAX_PROJECTS = 6;
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+function formatRepoName(name) {
+    return name
+        .replace(/[-_]+/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+async function loadGitHubProjects() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (!projectsGrid) return;
+
+    try {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated`);
+        if (!response.ok) throw new Error(`GitHub API responded with ${response.status}`);
+
+        const repos = await response.json();
+
+        const projects = repos
+            .filter(repo => !repo.fork && !repo.archived)
+            .filter(repo => !EXCLUDED_REPOS.includes(repo.name.toLowerCase()))
+            .sort((a, b) => {
+                if (b.stargazers_count !== a.stargazers_count) {
+                    return b.stargazers_count - a.stargazers_count;
+                }
+                return new Date(b.pushed_at) - new Date(a.pushed_at);
+            })
+            .slice(0, MAX_PROJECTS);
+
+        if (projects.length === 0) return;
+
+        projectsGrid.innerHTML = projects.map(repo => {
+            const description = repo.description || 'No description provided.';
+            const type = repo.topics && repo.topics.length > 0 ? formatRepoName(repo.topics[0]) : null;
+
+            return `
+                <div class="project-item">
+                    <h3>${escapeHtml(formatRepoName(repo.name))}</h3>
+                    <p>${escapeHtml(description)}</p>
+                    <div class="project-meta">
+                        ${repo.language ? `<span class="project-tech">${escapeHtml(repo.language)}</span>` : ''}
+                        ${type ? `<span class="project-type">${escapeHtml(type)}</span>` : ''}
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" rel="noopener" class="project-link">View Repository →</a>
+                </div>
+            `;
+        }).join('');
+
+        // Re-apply the scroll-in animation to the freshly rendered cards
+        projectsGrid.querySelectorAll('.project-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    } catch (error) {
+        console.error('Failed to load GitHub projects, keeping static fallback:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadGitHubProjects);
+
 // Typing effect for hero title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
