@@ -190,7 +190,7 @@ function showNotification(message, type = 'info') {
         z-index: 10000;
         transform: translateX(100%);
         transition: transform 0.3s ease;
-        max-width: 400px;
+        max-width: min(400px, calc(100vw - 40px));
     `;
     
     // Add to page
@@ -343,14 +343,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section (desktop only to prevent mobile layout gaps)
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
+    if (!hero) return;
+    if (window.innerWidth <= 768) {
+        hero.style.transform = '';
+        return;
     }
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    hero.style.transform = `translateY(${rate}px)`;
 });
 
 // Skills animation on hover

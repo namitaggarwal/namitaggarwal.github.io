@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 :root {
@@ -45,6 +46,7 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
 }
 
 .container {
@@ -91,6 +93,7 @@ body {
     color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-logo a:hover {
@@ -137,6 +140,7 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -175,6 +179,7 @@ body {
 /* Hero Section */
 .hero {
     min-height: 100vh;
+    padding: 90px 0 40px;
     display: flex;
     align-items: center;
     background: var(--bg-color);
@@ -228,132 +233,6 @@ body {
 
 .profile-image:hover {
     transform: scale(1.05);
-}
-
-/* MOBILE FIRST APPROACH - 768px and below */
-@media (max-width: 768px) {
-    .hero {
-        min-height: auto;
-        padding: 2rem 0 0.5rem 0;
-    }
-    
-    .hero-container {
-        padding: 0 20px;
-    }
-    
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        text-align: center;
-        margin-top: 3rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .hero-text {
-        text-align: center;
-        order: 2;
-    }
-    
-    .hero-image {
-        order: 1;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero-greeting {
-        font-size: 1.8rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-name {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero-description {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: 0.5rem;
-    }
-    
-    .profile-image-container {
-        width: 180px;
-        height: 180px;
-        margin: 0 auto;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    
-    .profile-image {
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-        margin-top: 1rem;
-        margin-bottom: 0;
-    }
-    
-    .btn {
-        padding: 18px 36px;
-        font-size: 1.2rem;
-        min-width: 200px;
-        font-weight: 700;
-        border-radius: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-container {
-        padding: 0 15px;
-    }
-    
-    .hero-content {
-        gap: 0.8rem;
-        margin-top: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .hero-greeting {
-        font-size: 1.6rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .hero-name {
-        font-size: 1.6rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-description {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        margin-bottom: 0.3rem;
-    }
-    
-    .profile-image-container {
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    
-    .profile-image {
-        object-fit: cover;
-        object-position: center;
-    }
-    
-    .hero-buttons {
-        margin-top: 0.8rem;
-        margin-bottom: 0;
-    }
-    
-    .btn {
-        padding: 16px 32px;
-        font-size: 1.1rem;
-        min-width: 180px;
-        font-weight: 700;
-        border-radius: 8px;
-    }
 }
 
 .hero-greeting {
@@ -833,7 +712,7 @@ body {
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 1.5rem;
     max-width: 1000px;
     margin: 0 auto;
@@ -842,7 +721,7 @@ body {
 /* MNC Companies Section */
 .mnc-companies {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -1036,7 +915,7 @@ body {
 
 .experience-item.expanded .experience-content,
 .education-item.expanded .education-content {
-    max-height: 500px;
+    max-height: 1200px;
 }
 
 .experience-description,
@@ -1060,7 +939,7 @@ body {
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     max-width: 1000px;
     margin: 0 auto;
@@ -1166,15 +1045,20 @@ body {
     gap: 0.5rem;
     color: var(--text-color);
     font-weight: 500;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    min-width: 0;
 }
 
 .contact-details i {
     color: var(--accent-color);
     width: 20px;
+    flex-shrink: 0;
 }
 
 .social-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -1239,67 +1123,10 @@ body {
     min-height: 120px;
 }
 
-/* Mobile Contact Form Styles */
-@media (max-width: 768px) {
-    .contact-form {
-        gap: 1rem;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 1rem;
-        font-size: 1rem;
-        border-radius: 8px;
-        border: 2px solid var(--border-color);
-    }
-    
-    .form-group textarea {
-        min-height: 80px;
-    }
-    
-    .contact-form .btn {
-        padding: 20px 40px;
-        font-size: 1.3rem;
-        font-weight: 700;
-        width: 100%;
-        max-width: none;
-        border-radius: 10px;
-        margin-top: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-form {
-        gap: 0.8rem;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-        padding: 0.9rem;
-        font-size: 0.95rem;
-        border-radius: 6px;
-        border: 2px solid var(--border-color);
-    }
-    
-    .form-group textarea {
-        min-height: 70px;
-    }
-    
-    .contact-form .btn {
-        padding: 18px 36px;
-        font-size: 1.2rem;
-        font-weight: 700;
-        width: 100%;
-        max-width: none;
-        border-radius: 8px;
-        margin-top: 0.3rem;
-    }
-}
-
 /* Blog Section */
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 2rem;
     max-width: 1000px;
     margin: 0 auto;
@@ -1388,6 +1215,87 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 1.15rem;
+    }
+
+    .nav-link {
+        font-size: 0.92rem;
+    }
+
+    .hero-content {
+        gap: 2.5rem;
+    }
+
+    .profile-image-container {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-greeting,
+    .hero-name {
+        font-size: 2.8rem;
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .contact-content {
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--card-bg);
+        width: 100%;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px var(--shadow);
+        padding: 1.5rem 0;
+        gap: 0;
+        border-top: 1px solid var(--border-color);
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 0.75rem 0;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-controls {
         gap: 0.5rem;
@@ -1399,66 +1307,106 @@ body {
         font-size: 1rem;
     }
 
-    .hamburger {
-        display: flex;
-    }
-    
     .nav-left {
-        gap: 0.5rem;
+        gap: 0.65rem;
     }
-    
+
     .nav-logo a {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
     }
 
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--card-bg);
-        width: 100%;
+    .hero {
+        min-height: auto;
+        padding: 90px 0 45px;
+    }
+
+    .hero-container {
+        padding: 0 20px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px var(--shadow);
-        padding: 2rem 0;
-        border-top: 1px solid var(--border-color);
+        margin-top: 0;
+        margin-bottom: 1.5rem;
     }
 
-    .nav-menu.active {
-        left: 0;
+    .hero-text {
+        text-align: center;
+        order: 2;
     }
 
-    .nav-menu li {
-        margin: 1rem 0;
+    .hero-image {
+        order: 1;
+        margin-bottom: 0.25rem;
     }
 
+    .hero-greeting {
+        font-size: 1.9rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .hero-name {
+        font-size: 2.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        margin-bottom: 0.9rem;
+    }
+
+    .profile-image-container {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        margin-top: 1.25rem;
+        margin-bottom: 0;
+    }
 
     .btn:not(.contact-form .btn) {
         width: 100%;
         max-width: 280px;
-        padding: 12px 24px;
-        font-size: 0.95rem;
+        padding: 13px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .section {
+        padding: 55px 0;
     }
 
     .section-title {
         font-size: 2rem;
     }
 
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+        line-height: 1.7;
     }
 
     .career-stats {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
         margin-top: 2rem;
+        padding: 1rem 0;
     }
 
     .stat-item {
         min-width: auto;
-        padding: 1.2rem;
+        padding: 1.25rem;
     }
 
     .stat-number {
@@ -1466,7 +1414,8 @@ body {
     }
 
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
     }
 
     .skill-logo {
@@ -1476,7 +1425,8 @@ body {
 
     .mnc-companies {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
+        gap: 1.5rem;
+        padding: 1rem 0;
     }
 
     .company-logo {
@@ -1491,11 +1441,32 @@ body {
     .projects-grid,
     .blog-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-item,
+    .blog-item {
+        padding: 1.5rem;
     }
 
     .experience-item:hover,
     .education-item:hover {
         transform: translateY(-1px);
+    }
+
+    .contact-form {
+        gap: 1rem;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+    }
+
+    .contact-form .btn {
+        padding: 14px 24px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        width: 100%;
     }
 }
 
@@ -1504,62 +1475,112 @@ body {
         padding: 0 15px;
     }
 
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .nav-logo a {
+        font-size: 1.1rem;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 82px 0 32px;
+    }
+
+    .hero-container {
+        padding: 0 15px;
+    }
+
+    .hero-content {
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-greeting {
+        font-size: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .hero-name {
+        font-size: 1.65rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.55;
+        margin-bottom: 0.75rem;
+    }
+
+    .profile-image-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-buttons {
+        margin-top: 1rem;
+    }
 
     .section {
-        padding: 5px 0;
+        padding: 40px 0;
     }
 
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
     }
 
     .skill-item {
-        padding: 1rem;
-        font-size: 0.9rem;
+        padding: 1rem 0.75rem;
         gap: 0.6rem;
     }
 
     .skill-logo {
-        width: 35px;
-        height: 35px;
+        width: 34px;
+        height: 34px;
     }
 
     .skill-item span {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
     }
 
     .mnc-companies {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
     }
 
     .company-logo {
-        padding: 1rem;
+        padding: 1.25rem;
     }
 
     .logo-img {
-        width: 80px;
-        height: 50px;
+        width: 90px;
+        height: 55px;
+        margin-bottom: 1rem;
     }
 
     .company-logo h3 {
-        font-size: 1rem;
-    }
-
-    .theme-toggle {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
+        font-size: 1.05rem;
     }
 
     .career-stats {
-        gap: 1.5rem;
-        margin-top: 1.5rem;
+        gap: 1rem;
+        margin-top: 1.25rem;
     }
 
     .stat-item {
@@ -1571,7 +1592,7 @@ body {
     }
 
     .stat-label {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .experience-item,
@@ -1604,55 +1625,68 @@ body {
     .expand-icon {
         font-size: 0.8rem;
     }
+
+    .project-item,
+    .blog-item {
+        padding: 1.25rem;
+    }
+
+    .project-item h3,
+    .blog-item h3 {
+        font-size: 1.15rem;
+    }
+
+    .contact-form {
+        gap: 0.85rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.85rem;
+        font-size: 0.95rem;
+        border-radius: 6px;
+    }
+
+    .form-group textarea {
+        min-height: 90px;
+    }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
     .hero-container {
-        padding: 0 10px;
+        padding: 0 12px;
     }
-    
-    .hero-content {
-        margin-top: 2rem;
-    }
-    
+
     .hero-greeting {
-        font-size: 1.4rem;
-        margin-bottom: 0.1rem;
+        font-size: 1.35rem;
     }
-    
+
     .hero-name {
-        font-size: 1.4rem;
-        margin-bottom: 0.2rem;
+        font-size: 1.45rem;
     }
-    
+
     .hero-description {
-        font-size: 0.8rem;
-        margin-bottom: 0.2rem;
+        font-size: 0.85rem;
     }
-    
+
     .profile-image-container {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        overflow: hidden;
+        width: 130px;
+        height: 130px;
     }
-    
-    .profile-image {
-        object-fit: cover;
-        object-position: center;
+
+    .btn:not(.contact-form .btn) {
+        padding: 12px 20px;
+        font-size: 0.95rem;
     }
-    
-    .hero-buttons {
-        margin-top: 0.5rem;
-        margin-bottom: 0;
+
+    .skills-grid {
+        gap: 0.65rem;
     }
-    
-    .btn {
-        padding: 14px 28px;
-        font-size: 1rem;
-        min-width: 160px;
-        font-weight: 700;
-        border-radius: 6px;
+}
+
+@media (hover: none) {
+    .company-logo::after {
+        display: none;
     }
 }
 
